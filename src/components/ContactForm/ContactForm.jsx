@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Label, Input, Button } from './ContactForm.styled';
-import { getContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/contacts/contactsSlice';
+import { selectContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/operations';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const ContactForm = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
@@ -27,7 +27,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact(formName, formNumber));
+    dispatch(addContact({ name: formName, phone: formNumber }));
 
     toast.success(`${formName} has been successfully added to your contacts!`, {
       theme: 'colored',
