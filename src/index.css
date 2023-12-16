@@ -8,6 +8,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(../public/wallpaper.jpg) center / cover no-repeat;
+  background-attachment: fixed;
 }
 
 code {
@@ -36,10 +38,6 @@ section {
   margin: 40px auto;
   padding: 0 20px;
 }
-
-/* section div {
-  width: 75%;
-} */
 
 h1,
 h2 {

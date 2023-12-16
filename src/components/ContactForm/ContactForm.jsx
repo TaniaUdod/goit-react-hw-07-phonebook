@@ -13,8 +13,8 @@ export const ContactForm = () => {
     event.preventDefault();
 
     const form = event.target;
-    const formName = event.target.elements.name.value;
-    const formNumber = event.target.elements.number.value;
+    const formName = form.elements.name.value;
+    const formNumber = form.elements.number.value;
 
     const isExist = contacts.some(
       contact => contact.name.toLowerCase() === formName.toLowerCase()
@@ -23,6 +23,7 @@ export const ContactForm = () => {
     if (isExist) {
       toast.error(`${formName} is already in contacts.`, {
         theme: 'colored',
+        autoClose: 2500,
       });
       return;
     }
@@ -31,6 +32,7 @@ export const ContactForm = () => {
 
     toast.success(`${formName} has been successfully added to your contacts!`, {
       theme: 'colored',
+      autoClose: 2500,
     });
 
     form.reset();
